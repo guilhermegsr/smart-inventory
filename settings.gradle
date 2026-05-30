@@ -9,5 +9,5 @@ pluginManagement {
 	}
 }
 
-// Should match your modid
-rootProject.name = 'smart-storage'
+// Output jar / artifact name. (The mod id stays "smart-storage".)
+rootProject.name = 'smart-inventory'
