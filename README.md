@@ -1,5 +1,7 @@
 # Smart Storage
 
+<img src="icon.png" alt="Smart Storage icon" width="120" align="right">
+
 A Fabric mod that adds a compact, vanilla-styled panel to container screens for sorting,
 compacting, and moving items — without ever leaving the screen.
 
