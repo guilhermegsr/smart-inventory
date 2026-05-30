@@ -35,10 +35,11 @@ public class SmartStorageMenuWidget extends AbstractWidget {
 	private static final int GAP = 2;
 	private static final int ROW_GAP = 3;
 	private static final int DIVIDER_GAP = 6;
-	private static final int GROUP_GAP = 14; // separa o grupo "enviar" do grupo "pegar"
 	private static final int BTN = 18;
 	private static final int ICON = 14;
-	private static final int SORT_COLUMNS = 6;
+	// Painel estreito (retrato): poucas colunas, mais linhas, para caber na faixa lateral
+	// que sobra mesmo em telas 16:9 com o livro de receitas aberto.
+	private static final int SORT_COLUMNS = 2;
 	private static final int PANEL_WIDTH = PAD * 2 + SORT_COLUMNS * BTN + (SORT_COLUMNS - 1) * GAP;
 
 	private static final int SEP_DARK = 0xFF0E1014;
@@ -49,6 +50,8 @@ public class SmartStorageMenuWidget extends AbstractWidget {
 			SortMode.NAME_ASC, SortMode.NAME_DESC, SortMode.COUNT_ASC,
 			SortMode.COUNT_DESC, SortMode.CATEGORY, SortMode.MOD
 	};
+
+	private static final int SORT_ROWS = (SORT_MODES.length + SORT_COLUMNS - 1) / SORT_COLUMNS;
 
 	private final AbstractContainerScreen<?> screen;
 	private final Identifier containerIcon;
@@ -192,47 +195,47 @@ public class SmartStorageMenuWidget extends AbstractWidget {
 		int y = panelY(height);
 		int left = x + PAD;
 		int inner = PANEL_WIDTH - PAD * 2;
+		int col0 = left;
+		int col1 = left + BTN + GAP;
+		int center = left + (inner - BTN) / 2;
 		Component disabledReason = disabledReason(menu);
 
 		List<MenuButton> buttons = new ArrayList<>();
 		List<Integer> separators = new ArrayList<>();
 		int cursor = y + PAD;
 
-		// Filtros: alvo (seletores Container/Inv) + ordenacao
-		int tabWidth = (inner - GAP) / 2;
-		buttons.add(tabButton(SortTarget.CONTAINER, containerIcon, left, cursor, tabWidth, hasContainer, Component.translatable("smart_storage.target", screen.getTitle())));
-		buttons.add(tabButton(SortTarget.INVENTORY, SmartStorageSprites.icon("tab_inventory"), left + tabWidth + GAP, cursor, inner - tabWidth - GAP, hasInventory, Component.translatable("smart_storage.target", Component.translatable("smart_storage.inventory"))));
+		buttons.add(tabButton(SortTarget.CONTAINER, containerIcon, col0, cursor, BTN, hasContainer, Component.translatable("smart_storage.target", screen.getTitle())));
+		buttons.add(tabButton(SortTarget.INVENTORY, SmartStorageSprites.icon("tab_inventory"), col1, cursor, BTN, hasInventory, Component.translatable("smart_storage.target", Component.translatable("smart_storage.inventory"))));
 		cursor += BTN + ROW_GAP;
+
 		for (int i = 0; i < SORT_MODES.length; i++) {
-			buttons.add(sortButton(menu, SORT_MODES[i], left + i * (BTN + GAP), cursor, canSend, disabledReason));
+			int bx = left + (i % SORT_COLUMNS) * (BTN + GAP);
+			int by = cursor + (i / SORT_COLUMNS) * (BTN + GAP);
+			buttons.add(sortButton(menu, SORT_MODES[i], bx, by, canSend, disabledReason));
 		}
-		cursor += BTN;
+		cursor += SORT_ROWS * BTN + (SORT_ROWS - 1) * GAP;
 
 		separators.add(cursor + (DIVIDER_GAP - 2) / 2);
 		cursor += DIVIDER_GAP;
 
-		// Acoes: transferencias agrupadas por direcao (enviar | pegar); Juntar fica isolado abaixo.
 		if (hasTransferActions) {
-			int cluster = 2 * BTN + GAP;
-			int sendLeft = left + (inner - (2 * cluster + GROUP_GAP)) / 2;
-			int takeLeft = sendLeft + cluster + GROUP_GAP;
-			buttons.add(actionButton(menu, StorageAction.QUICK_STACK, sendLeft, cursor, canSend, tooltip(canSend, Component.translatable("smart_storage.action.quick_stack"), disabledReason)));
-			buttons.add(actionButton(menu, StorageAction.DEPOSIT_INVENTORY, sendLeft + BTN + GAP, cursor, canSend, tooltip(canSend, Component.translatable("smart_storage.action.deposit"), disabledReason)));
-			buttons.add(actionButton(menu, StorageAction.PULL_MATCHES, takeLeft, cursor, canSend, tooltip(canSend, Component.translatable("smart_storage.action.pull"), disabledReason)));
-			buttons.add(actionButton(menu, StorageAction.WITHDRAW_CONTAINER, takeLeft + BTN + GAP, cursor, canSend, tooltip(canSend, Component.translatable("smart_storage.action.withdraw"), disabledReason)));
+			buttons.add(actionButton(menu, StorageAction.QUICK_STACK, col0, cursor, canSend, tooltip(canSend, Component.translatable("smart_storage.action.quick_stack"), disabledReason)));
+			buttons.add(actionButton(menu, StorageAction.DEPOSIT_INVENTORY, col1, cursor, canSend, tooltip(canSend, Component.translatable("smart_storage.action.deposit"), disabledReason)));
+			cursor += BTN + GAP;
+			buttons.add(actionButton(menu, StorageAction.PULL_MATCHES, col0, cursor, canSend, tooltip(canSend, Component.translatable("smart_storage.action.pull"), disabledReason)));
+			buttons.add(actionButton(menu, StorageAction.WITHDRAW_CONTAINER, col1, cursor, canSend, tooltip(canSend, Component.translatable("smart_storage.action.withdraw"), disabledReason)));
 			cursor += BTN + GAP;
 		}
 		boolean targetAvailable = SmartStorageClientTargets.hasTarget(menu, target);
-		buttons.add(actionButton(menu, StorageAction.COMPACT, left + (inner - BTN) / 2, cursor, canSend && targetAvailable, tooltip(canSend && targetAvailable, Component.translatable("smart_storage.action.compact"), disabledReason)));
+		buttons.add(actionButton(menu, StorageAction.COMPACT, center, cursor, canSend && targetAvailable, tooltip(canSend && targetAvailable, Component.translatable("smart_storage.action.compact"), disabledReason)));
 		cursor += BTN;
 
 		separators.add(cursor + (DIVIDER_GAP - 2) / 2);
 		cursor += DIVIDER_GAP;
 
-		// Opcao: hotbar
 		Identifier lockIcon = SmartStorageSprites.icon(SmartStorageOptions.preserveHotbar() ? "lock_closed" : "lock_open");
 		Component hotbarTooltip = Component.translatable(SmartStorageOptions.preserveHotbar() ? "smart_storage.hotbar.protected" : "smart_storage.hotbar.included");
-		buttons.add(new MenuButton(left + (inner - BTN) / 2, cursor, BTN, lockIcon, true,
+		buttons.add(new MenuButton(center, cursor, BTN, lockIcon, true,
 				SmartStorageOptions::toggleHotbar, hotbarTooltip, false, false));
 
 		return new Layout(x, y, height, buttons, separators);
@@ -295,10 +298,15 @@ public class SmartStorageMenuWidget extends AbstractWidget {
 	}
 
 	private static int contentHeight(boolean hasTransferActions) {
-		int actionRows = hasTransferActions ? 2 : 1;
-		return PAD + BTN + ROW_GAP + BTN
-				+ DIVIDER_GAP + actionRows * BTN + (actionRows - 1) * GAP
-				+ DIVIDER_GAP + BTN + PAD;
+		// transferencias = 2 linhas (enviar / pegar) + folga antes do Juntar.
+		int transfer = hasTransferActions ? (2 * BTN + 2 * GAP) : 0;
+		return PAD
+				+ BTN + ROW_GAP                              // seletores de alvo
+				+ SORT_ROWS * BTN + (SORT_ROWS - 1) * GAP    // ordenacao
+				+ DIVIDER_GAP
+				+ transfer + BTN                             // transferencias (opcional) + Juntar
+				+ DIVIDER_GAP
+				+ BTN + PAD;                                 // hotbar
 	}
 
 	private static boolean inside(double mouseX, double mouseY, int x, int y, int width, int height) {
