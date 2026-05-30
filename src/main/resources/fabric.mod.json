@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "smart-storage",
+	"version": "${version}",
+	"name": "Smart Storage",
+	"description": "Sort, compact, and move items between containers and your inventory from a compact, vanilla-styled panel.",
+	"authors": [
+		"Guilherme Gomes"
+	],
+	"contact": {
+		"homepage": "https://github.com/guilhermegsr/smart-storage",
+		"sources": "https://github.com/guilhermegsr/smart-storage",
+		"issues": "https://github.com/guilhermegsr/smart-storage/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/smart-storage/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.guilhermegomes.SmartStorage"
+		]
+	},
+	"mixins": [
+		{
+			"config": "smart-storage.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~26.1.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
