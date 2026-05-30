@@ -1,8 +1,8 @@
 {
-	"smart_storage.title": "Smart Storage",
-	"smart_storage.narration.usage": "Opens the Smart Storage menu",
-	"smart_storage.trigger.open": "Open Smart Storage",
-	"smart_storage.trigger.close": "Close Smart Storage",
+	"smart_storage.title": "Smart Inventory",
+	"smart_storage.narration.usage": "Opens the Smart Inventory menu",
+	"smart_storage.trigger.open": "Open Smart Inventory",
+	"smart_storage.trigger.close": "Close Smart Inventory",
 	"smart_storage.inventory": "Inventory",
 	"smart_storage.target": "Target: %s",
 	"smart_storage.sort.name_asc": "Name (A-Z)",
@@ -19,6 +19,6 @@
 	"smart_storage.hotbar.protected": "Hotbar protected",
 	"smart_storage.hotbar.included": "Hotbar included",
 	"smart_storage.disabled.carried": "Release the held item",
-	"smart_storage.disabled.server": "Server lacks Smart Storage",
+	"smart_storage.disabled.server": "Server lacks Smart Inventory",
 	"smart_storage.disabled.target": "Unavailable on this screen"
 }

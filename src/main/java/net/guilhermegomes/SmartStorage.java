@@ -13,6 +13,6 @@ public class SmartStorage implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		SmartStorageNetworking.register();
-		LOGGER.info("Smart Storage initialized.");
+		LOGGER.info("Smart Inventory initialized.");
 	}
 }

@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/icon.png" alt="Smart Storage" width="128">
+  <img src="docs/icon.png" alt="Smart Inventory" width="128">
 </p>
 
-<h1 align="center">Smart Storage</h1>
+<h1 align="center">Smart Inventory</h1>
 
 <p align="center">
   A Fabric mod that adds a compact, vanilla-styled panel to container screens for
@@ -30,6 +30,21 @@
 - **Server-authoritative and safe** on multiplayer; degrades gracefully (with a notice) on servers
   that don't have the mod.
 
+## Screenshots
+
+<table width="100%">
+  <tr>
+    <td align="center" valign="top" width="50%">
+      <img src="docs/screenshots/chest.png" alt="Smart Inventory panel open on a chest" width="100%"><br>
+      <sub>With a container open — sort, deposit, withdraw, compact</sub>
+    </td>
+    <td align="center" valign="top" width="50%">
+      <img src="docs/screenshots/inv.png" alt="Smart Inventory panel on the player inventory" width="100%"><br>
+      <sub>On your own inventory — sort and compact anywhere</sub>
+    </td>
+  </tr>
+</table>
+
 ## Requirements
 
 - Minecraft 26.1.2
@@ -40,7 +55,7 @@
 ## Installation
 
 1. Install Fabric Loader for Minecraft 26.1.2.
-2. Drop **Fabric API** and **Smart Storage** into your `mods` folder.
+2. Drop **Fabric API** and **Smart Inventory** into your `mods` folder.
 3. Launch the game. Open any container (or your inventory) and click the side tab to open the panel.
 
 ## Building from source

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gera os icones (pixel art 16x16) do Smart Storage.
+"""Gera os icones (pixel art 16x16) do Smart Inventory.
 
 Sem dependencias externas: encoder PNG via zlib/struct da stdlib.
 Saida: src/main/resources/assets/smart-storage/textures/gui/sprites/icon/*.png

@@ -1,8 +1,8 @@
 {
-	"smart_storage.title": "Smart Storage",
-	"smart_storage.narration.usage": "Abre o menu Smart Storage",
-	"smart_storage.trigger.open": "Abrir Smart Storage",
-	"smart_storage.trigger.close": "Fechar Smart Storage",
+	"smart_storage.title": "Smart Inventory",
+	"smart_storage.narration.usage": "Abre o menu Smart Inventory",
+	"smart_storage.trigger.open": "Abrir Smart Inventory",
+	"smart_storage.trigger.close": "Fechar Smart Inventory",
 	"smart_storage.inventory": "Inventário",
 	"smart_storage.target": "Alvo: %s",
 	"smart_storage.sort.name_asc": "Nome (A-Z)",
@@ -19,6 +19,6 @@
 	"smart_storage.hotbar.protected": "Hotbar protegida",
 	"smart_storage.hotbar.included": "Hotbar incluída",
 	"smart_storage.disabled.carried": "Solte o item segurado",
-	"smart_storage.disabled.server": "Servidor sem Smart Storage",
+	"smart_storage.disabled.server": "Servidor sem Smart Inventory",
 	"smart_storage.disabled.target": "Indisponível nesta tela"
 }
