@@ -13,11 +13,11 @@ public final class SmartStorageClientTargets {
 
 	public static boolean canAttach(AbstractContainerMenu menu) {
 		Player player = Minecraft.getInstance().player;
-		return player != null && StorageSlotResolver.canAttach(menu, player, SmartStorageOptions.preserveHotbar);
+		return player != null && StorageSlotResolver.canAttach(menu, player, SmartStorageOptions.preserveHotbar());
 	}
 
 	public static boolean hasTarget(AbstractContainerMenu menu, SortTarget target) {
 		Player player = Minecraft.getInstance().player;
-		return player != null && StorageSlotResolver.hasTarget(menu, player, target, SmartStorageOptions.preserveHotbar);
+		return player != null && StorageSlotResolver.hasTarget(menu, player, target, SmartStorageOptions.preserveHotbar());
 	}
 }

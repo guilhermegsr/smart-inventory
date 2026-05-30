@@ -230,10 +230,10 @@ public class SmartStorageMenuWidget extends AbstractWidget {
 		cursor += DIVIDER_GAP;
 
 		// Opcao: hotbar
-		Identifier lockIcon = SmartStorageSprites.icon(SmartStorageOptions.preserveHotbar ? "lock_closed" : "lock_open");
-		Component hotbarTooltip = Component.translatable(SmartStorageOptions.preserveHotbar ? "smart_storage.hotbar.protected" : "smart_storage.hotbar.included");
+		Identifier lockIcon = SmartStorageSprites.icon(SmartStorageOptions.preserveHotbar() ? "lock_closed" : "lock_open");
+		Component hotbarTooltip = Component.translatable(SmartStorageOptions.preserveHotbar() ? "smart_storage.hotbar.protected" : "smart_storage.hotbar.included");
 		buttons.add(new MenuButton(left + (inner - BTN) / 2, cursor, BTN, lockIcon, true,
-				() -> SmartStorageOptions.preserveHotbar = !SmartStorageOptions.preserveHotbar, hotbarTooltip, false, false));
+				SmartStorageOptions::toggleHotbar, hotbarTooltip, false, false));
 
 		return new Layout(x, y, height, buttons, separators);
 	}

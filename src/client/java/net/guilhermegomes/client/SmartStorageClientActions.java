@@ -38,7 +38,7 @@ public final class SmartStorageClientActions {
 
 		// Ordenacao depende dos nomes localizados: calcula no cliente e envia a ordem dos slots.
 		int[] order = action == StorageAction.SORT ? sortOrder(menu, target, mode) : NO_ORDER;
-		ClientPlayNetworking.send(new StorageActionPayload(menu.containerId, action, target, mode, SmartStorageOptions.preserveHotbar, order));
+		ClientPlayNetworking.send(new StorageActionPayload(menu.containerId, action, target, mode, SmartStorageOptions.preserveHotbar(), order));
 		return true;
 	}
 
@@ -49,7 +49,7 @@ public final class SmartStorageClientActions {
 		}
 
 		List<SlotRef> filled = new ArrayList<>();
-		for (SlotRef ref : StorageSlotResolver.resolve(menu, player, target, SmartStorageOptions.preserveHotbar)) {
+		for (SlotRef ref : StorageSlotResolver.resolve(menu, player, target, SmartStorageOptions.preserveHotbar())) {
 			if (!ref.slot().getItem().isEmpty()) {
 				filled.add(ref);
 			}
