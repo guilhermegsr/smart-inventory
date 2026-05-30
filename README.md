@@ -14,7 +14,7 @@
   <img alt="Mod loader" src="https://img.shields.io/badge/Loader-Fabric-DBD0B4">
   <img alt="Java" src="https://img.shields.io/badge/Java-25-ED8B00?logo=openjdk&logoColor=white">
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue"></a>
-  <a href="https://github.com/guilhermegsr/smart-storage/actions/workflows/build.yml"><img alt="Build" src="https://github.com/guilhermegsr/smart-storage/actions/workflows/build.yml/badge.svg"></a>
+  <a href="https://github.com/guilhermegsr/smart-inventory/actions/workflows/build.yml"><img alt="Build" src="https://github.com/guilhermegsr/smart-inventory/actions/workflows/build.yml/badge.svg"></a>
 </p>
 
 ## Features

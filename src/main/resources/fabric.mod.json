@@ -8,9 +8,9 @@
 		"Guilherme Gomes"
 	],
 	"contact": {
-		"homepage": "https://github.com/guilhermegsr/smart-storage",
-		"sources": "https://github.com/guilhermegsr/smart-storage",
-		"issues": "https://github.com/guilhermegsr/smart-storage/issues"
+		"homepage": "https://github.com/guilhermegsr/smart-inventory",
+		"sources": "https://github.com/guilhermegsr/smart-inventory",
+		"issues": "https://github.com/guilhermegsr/smart-inventory/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/smart-storage/icon.png",
