@@ -17,6 +17,12 @@
   <a href="https://github.com/guilhermegsr/smart-inventory/actions/workflows/build.yml"><img alt="Build" src="https://github.com/guilhermegsr/smart-inventory/actions/workflows/build.yml/badge.svg"></a>
 </p>
 
+## Demo
+
+<p align="center">
+  <img src="docs/demo.gif" alt="Sorting and transferring items from a chest without leaving the screen" width="100%">
+</p>
+
 ## Features
 
 - **Sort** the container or your inventory by name (A–Z / Z–A), quantity, category, or mod.
