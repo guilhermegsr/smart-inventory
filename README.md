@@ -1,9 +1,21 @@
-# Smart Storage
+<p align="center">
+  <img src="docs/icon.png" alt="Smart Storage" width="128">
+</p>
 
-<img src="docs/icon.png" alt="Smart Storage icon" width="120" align="right">
+<h1 align="center">Smart Storage</h1>
 
-A Fabric mod that adds a compact, vanilla-styled panel to container screens for sorting,
-compacting, and moving items — without ever leaving the screen.
+<p align="center">
+  A Fabric mod that adds a compact, vanilla-styled panel to container screens for
+  sorting, compacting, and moving items — without ever leaving the screen.
+</p>
+
+<p align="center">
+  <img alt="Minecraft" src="https://img.shields.io/badge/Minecraft-26.1.2-62B47A">
+  <img alt="Mod loader" src="https://img.shields.io/badge/Loader-Fabric-DBD0B4">
+  <img alt="Java" src="https://img.shields.io/badge/Java-25-ED8B00?logo=openjdk&logoColor=white">
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue"></a>
+  <a href="https://github.com/guilhermegsr/smart-storage/actions/workflows/build.yml"><img alt="Build" src="https://github.com/guilhermegsr/smart-storage/actions/workflows/build.yml/badge.svg"></a>
+</p>
 
 ## Features
 
